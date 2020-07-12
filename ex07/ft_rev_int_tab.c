@@ -1,32 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_rev_int_tab.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: swahb <marvin@42.fr>                       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/07/12 18:31:56 by swahb             #+#    #+#             */
+/*   Updated: 2020/07/12 18:34:45 by swahb            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
-#include <unistd.h>
-
-void	ft_swap(int *a, int	*b)
-{
-	int	temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
 
 void	ft_rev_int_tab(int *tab, int size)
 {
-	int			*ptr1;
-	int			*ptr2;
+	int i;
+	int temp;
 
-	ptr1 = &(tab[0]);
-   	ptr2 = &(tab[size -1]);
-	while (ptr1 < ptr2)
+	i = 0;
+	while (i < size / 2)
 	{
-		ft_swap(ptr1, ptr2);
-		ptr1++;
-		ptr2--;
+		temp = *(tab + i);
+		*(tab + i) = *(tab + size - i - 1);
+		*(tab + size - i - 1) = temp;
+		i++;
 	}
-}
-
-int	main	(void)
-{
-	ft_rev_int_tab("4654897981", 10);
-	return 0;
 }
